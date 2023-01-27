@@ -3,19 +3,17 @@ package com.silverbullet.mivu.feature_auth.presentation
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.ui.theme.*
+import com.silverbullet.mivu.feature_auth.presentation.components.DefaultAuthButton
 import com.silverbullet.mivu.navigation.Screen
 
 @Composable
@@ -44,21 +42,7 @@ fun StartScreen(navCallback: (Screen) -> Unit) {
             color = TextGrey
         )
         Spacer(modifier = Modifier.height(64.dp))
-        Button(
-            onClick = { /*TODO*/ },
-            colors = ButtonDefaults.buttonColors(backgroundColor = BlueAccent),
-            modifier = Modifier
-                .height(56.dp)
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(32.dp))
-        ) {
-            Text(
-                text = stringResource(id = R.string.signup),
-                fontSize = 16.sp,
-                fontFamily = Montserrat,
-                color = Color.White
-            )
-        }
+        DefaultAuthButton(textRes = R.string.signup) { navCallback(Screen.SignupScreen) }
         Spacer(modifier = Modifier.height(LargeSpace))
         Row(
             modifier = Modifier.fillMaxWidth(),

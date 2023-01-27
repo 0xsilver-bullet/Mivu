@@ -1,21 +1,16 @@
 package com.silverbullet.mivu.navigation
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.silverbullet.mivu.core.presentation.components.MivuTopBar
-import com.silverbullet.mivu.feature_auth.presentation.StartScreen
+import com.silverbullet.mivu.feature_auth.presentation.*
 
 @Composable
 fun MivuNavHost(navHostController: NavHostController, startDestination: String) {
@@ -52,13 +47,35 @@ fun MivuNavHost(navHostController: NavHostController, startDestination: String) 
                 }
 
                 composable(Screen.LoginScreen.route) {
-                    Box(modifier = Modifier.fillMaxSize()) {
-                        Text(
-                            text = "Login Screen",
-                            modifier = Modifier.align(Alignment.Center),
-                            style = MaterialTheme.typography.h1
-                        )
-                    }
+                    LoginScreen(
+                        navCallback = { screen ->
+                            navHostController.navigate(screen.route)
+                        }
+                    )
+                }
+
+                composable(Screen.SignupScreen.route) {
+                    SignupScreen()
+                }
+
+                composable(Screen.ResetPasswordScreen.route) {
+                    ResetPasswordScreen(
+                        navCallback = { screen ->
+                            navHostController.navigate(screen.route)
+                        }
+                    )
+                }
+
+                composable(Screen.VerifyAccountScreen.route) {
+                    VerifyAccountScreen(
+                        navCallback = { screen ->
+                            navHostController.navigate(screen.route)
+                        }
+                    )
+                }
+
+                composable(Screen.CreateNewPasswordScreen.route) {
+                    CreateNewPasswordScreen()
                 }
 
             }
