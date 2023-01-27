@@ -1,33 +1,93 @@
 package com.silverbullet.mivu.navigation
 
-sealed class Screen(val route: String){
+import com.silverbullet.mivu.R
+
+sealed class Screen(val route: String, val topBarConfig: TopBarConfig) {
 
     /**
      * Screen That contains option to login and signup
      */
-    object StartScreen: Screen("start-screen")
+    object StartScreen : Screen("start-screen", TopBarConfig())
 
-    object LoginScreen: Screen("login-screen")
+    object LoginScreen : Screen(
+        "login-screen",
+        TopBarConfig(
+            visible = true,
+            iconRes = R.drawable.ic_back,
+            title = R.string.login,
+            iconCallback = { navController ->
+                navController.navigateUp()
+            }
+        )
+    )
 
-    object SignupScreen: Screen("signup-screen")
+    object SignupScreen : Screen(
+        "signup-screen",
+        TopBarConfig(
+            visible = true,
+            iconRes = R.drawable.ic_back,
+            title = R.string.signup,
+            iconCallback = { navController -> navController.navigateUp() }
+        )
+    )
 
-    object ResetPasswordScreen: Screen("reset-password-screen")
+    object ResetPasswordScreen : Screen(
+        "reset-password-screen",
+        TopBarConfig(
+            visible = true,
+            iconRes = R.drawable.ic_back,
+            title = null,
+            iconCallback = { navController -> navController.navigateUp() }
+        )
+    )
 
     /**
      * User enters the code sent by email to ensure account ownership
      */
-    object VerifyAccountScreen: Screen("verify-account-screen")
+    object VerifyAccountScreen : Screen(
+        "verify-account-screen",
+        TopBarConfig(
+            visible = true,
+            iconRes = R.drawable.ic_back,
+            title = null,
+            iconCallback = { navController -> navController.navigateUp() }
+        )
+    )
 
-    object CreateNewPasswordScreen: Screen("new-password-screen")
+    object CreateNewPasswordScreen : Screen(
+        "new-password-screen",
+        TopBarConfig(
+            visible = true,
+            iconRes = R.drawable.ic_back,
+            title = null,
+            iconCallback = { navController -> navController.navigateUp() }
+        )
+    )
 
-    object HomeScreen: Screen("home-screen")
+    object HomeScreen : Screen("home-screen", TopBarConfig())
 
-    object SearchScreen: Screen("search-screen")
+    object SearchScreen : Screen("search-screen", TopBarConfig())
 
-    object FavoritesScreen: Screen("favorites-screen")
+    object FavoritesScreen : Screen("favorites-screen", TopBarConfig())
 
-    object ProfileScreen: Screen("profile-screen")
+    object ProfileScreen : Screen("profile-screen", TopBarConfig())
 
-    object MovieDetailsScreen: Screen("movie-details")
+    object MovieDetailsScreen : Screen("movie-details", TopBarConfig())
+
+    companion object {
+        fun getTopBarConfigFromRoute(route: String): TopBarConfig = when (route) {
+            StartScreen.route -> StartScreen.topBarConfig
+            LoginScreen.route -> LoginScreen.topBarConfig
+            SignupScreen.route -> SignupScreen.topBarConfig
+            ResetPasswordScreen.route -> ResetPasswordScreen.topBarConfig
+            VerifyAccountScreen.route -> VerifyAccountScreen.topBarConfig
+            CreateNewPasswordScreen.route -> CreateNewPasswordScreen.topBarConfig
+            SearchScreen.route -> SearchScreen.topBarConfig
+            FavoritesScreen.route -> FavoritesScreen.topBarConfig
+            ProfileScreen.route -> ProfileScreen.topBarConfig
+            MovieDetailsScreen.route -> MovieDetailsScreen.topBarConfig
+            else -> TopBarConfig()
+        }
+    }
 
 }

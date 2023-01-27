@@ -1,6 +1,7 @@
 package com.silverbullet.mivu.feature_auth.presentation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -13,12 +14,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.ui.theme.*
+import com.silverbullet.mivu.navigation.Screen
 
 @Composable
-fun StartScreen(navController: NavController) {
+fun StartScreen(navCallback: (Screen) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -73,7 +74,10 @@ fun StartScreen(navController: NavController) {
             Text(
                 text = stringResource(id = R.string.login),
                 style = MaterialTheme.typography.h4,
-                color = BlueAccent
+                color = BlueAccent,
+                modifier = Modifier.clickable {
+                    navCallback(Screen.LoginScreen)
+                }
             )
         }
     }

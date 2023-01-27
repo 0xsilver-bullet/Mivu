@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.material.Surface
 import androidx.compose.runtime.collectAsState
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
@@ -19,18 +18,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen().apply {
-            setKeepOnScreenCondition{
+            setKeepOnScreenCondition {
                 viewModel.startDestination.value == null
             }
         }
         setContent {
             MivuTheme {
-                Surface {
-                    val navController = rememberNavController()
-                    val startDestination = viewModel.startDestination.collectAsState()
-                    startDestination.value?.let { startDestinationRoute ->
-                        MivuNavHost(navHostController = navController, startDestinationRoute)
-                    }
+                val navController = rememberNavController()
+                val startDestination = viewModel.startDestination.collectAsState()
+                startDestination.value?.let { startDestinationRoute ->
+                    MivuNavHost(navHostController = navController, startDestinationRoute)
                 }
             }
         }
