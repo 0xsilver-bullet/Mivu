@@ -3,33 +3,33 @@ package com.silverbullet.mivu.core.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
+import androidx.activity.viewModels
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.collectAsState
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.compose.rememberNavController
 import com.silverbullet.mivu.core.presentation.ui.theme.MivuTheme
-import com.silverbullet.mivu.core.presentation.ui.theme.TextWhiteGrey
+import com.silverbullet.mivu.navigation.MivuNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
+        installSplashScreen().apply {
+            setKeepOnScreenCondition{
+                viewModel.startDestination.value == null
+            }
+        }
         setContent {
             MivuTheme {
                 Surface {
-                    Box(modifier = Modifier.fillMaxSize()) {
-                        Text(
-                            text = "Android",
-                            style = MaterialTheme.typography.h1,
-                            color = TextWhiteGrey,
-                            modifier = Modifier.align(Alignment.Center)
-                        )
+                    val navController = rememberNavController()
+                    val startDestination = viewModel.startDestination.collectAsState()
+                    startDestination.value?.let { startDestinationRoute ->
+                        MivuNavHost(navHostController = navController, startDestinationRoute)
                     }
                 }
             }
