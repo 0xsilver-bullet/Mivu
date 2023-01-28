@@ -1,6 +1,7 @@
-package com.silverbullet.mivu.navigation
+package com.silverbullet.mivu.navigation.utils
 
 import com.silverbullet.mivu.R
+import com.silverbullet.mivu.navigation.model.TopBarConfig
 
 sealed class Screen(val route: String, val topBarConfig: TopBarConfig) {
 

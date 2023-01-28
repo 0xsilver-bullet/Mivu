@@ -1,4 +1,4 @@
-package com.silverbullet.mivu.navigation
+package com.silverbullet.mivu.navigation.model
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

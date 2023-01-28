@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 val startDestination = viewModel.startDestination.collectAsState()
                 startDestination.value?.let { startDestinationRoute ->
-                    MivuNavHost(navHostController = navController, startDestinationRoute)
+                    MivuNavHost(navController = navController, startDestinationRoute)
                 }
             }
         }

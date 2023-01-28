@@ -30,5 +30,9 @@
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
     <string name="full_name">Full Name</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
+    <string name="profile">Profile</string>
 
 </resources>

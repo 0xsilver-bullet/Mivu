@@ -18,7 +18,7 @@ import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.ui.theme.*
 import com.silverbullet.mivu.feature_auth.presentation.components.DefaultAuthButton
 import com.silverbullet.mivu.feature_auth.presentation.components.VerifyKeyInput
-import com.silverbullet.mivu.navigation.Screen
+import com.silverbullet.mivu.navigation.utils.Screen
 
 @Composable
 fun VerifyAccountScreen(navCallback: (Screen) -> Unit) {

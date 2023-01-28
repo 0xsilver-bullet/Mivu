@@ -1,4 +1,4 @@
-package com.silverbullet.mivu.core.presentation.components
+package com.silverbullet.mivu.navigation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.silverbullet.mivu.core.presentation.ui.theme.MediumSpace
 import com.silverbullet.mivu.core.presentation.ui.theme.Soft
-import com.silverbullet.mivu.navigation.TopBarConfig
+import com.silverbullet.mivu.navigation.model.TopBarConfig
 
 @Composable
 fun MivuTopBar(

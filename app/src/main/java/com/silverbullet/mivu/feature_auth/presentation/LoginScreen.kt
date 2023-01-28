@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.ui.theme.*
 import com.silverbullet.mivu.feature_auth.presentation.components.DefaultAuthButton
-import com.silverbullet.mivu.navigation.Screen
+import com.silverbullet.mivu.navigation.utils.Screen
 
 @Composable
 fun LoginScreen(navCallback: (Screen) -> Unit) {
@@ -59,7 +59,10 @@ fun LoginScreen(navCallback: (Screen) -> Unit) {
                 modifier = Modifier.clickable { navCallback(Screen.ResetPasswordScreen) }
             )
             Spacer(modifier = Modifier.height(40.dp))
-            DefaultAuthButton(textRes = R.string.login) {}
+            DefaultAuthButton(textRes = R.string.login) {
+                // TODO: start login process and navigate on success
+                navCallback(Screen.HomeScreen)
+            }
         }
     }
 }

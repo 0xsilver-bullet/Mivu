@@ -3,7 +3,7 @@ package com.silverbullet.mivu.core.presentation
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import com.silverbullet.mivu.core.utils.SharedPrefKeys
-import com.silverbullet.mivu.navigation.Screen
+import com.silverbullet.mivu.navigation.utils.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

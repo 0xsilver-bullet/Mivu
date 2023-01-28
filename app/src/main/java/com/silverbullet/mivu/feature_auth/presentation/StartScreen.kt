@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.ui.theme.*
 import com.silverbullet.mivu.feature_auth.presentation.components.DefaultAuthButton
-import com.silverbullet.mivu.navigation.Screen
+import com.silverbullet.mivu.navigation.utils.Screen
 
 @Composable
 fun StartScreen(navCallback: (Screen) -> Unit) {
