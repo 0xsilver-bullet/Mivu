@@ -65,7 +65,7 @@ fun MivuNavHost(navController: NavHostController, startDestination: String) {
     }
 }
 
-fun NavGraphBuilder.setupRoutes(navController: NavController){
+fun NavGraphBuilder.setupRoutes(navController: NavController) {
     composable(Screen.StartScreen.route) {
         StartScreen(
             navCallback = { screen ->
@@ -107,18 +107,22 @@ fun NavGraphBuilder.setupRoutes(navController: NavController){
     }
 
     composable(Screen.HomeScreen.route) {
-        HomeScreen()
+        HomeScreen(
+            navCallback = { screen ->
+                navController.navigate(screen.route)
+            }
+        )
     }
 
-    composable(Screen.SearchScreen.route){
+    composable(Screen.SearchScreen.route) {
         SearchScreen()
     }
 
-    composable(Screen.FavoritesScreen.route){
+    composable(Screen.FavoritesScreen.route) {
         FavoritesScreen()
     }
 
-    composable(Screen.ProfileScreen.route){
+    composable(Screen.ProfileScreen.route) {
         ProfileScreen()
     }
 }

@@ -6,6 +6,8 @@ val Dark = Color(0xFF1F1D2B)
 val Soft = Color(0xFF252836)
 val BlueAccent = Color(0xFF12CDD9)
 
+val Orange = Color(0xFFFF8700)
+
 val TextBlack = Color(0xFF171725)
 val TextDarkGrey = Color(0xFF696974)
 val TextGrey = Color(0xFF92929D)

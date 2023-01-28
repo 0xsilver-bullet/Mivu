@@ -101,6 +101,9 @@ dependencies {
     // Coil
     implementation("io.coil-kt:coil-compose:2.2.2")
 
+    // Pager
+    implementation("com.google.accompanist:accompanist-pager:0.28.0")
+
     // Room
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")

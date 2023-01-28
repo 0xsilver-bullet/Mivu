@@ -34,5 +34,9 @@
     <string name="search">Search</string>
     <string name="favorites">Favorites</string>
     <string name="profile">Profile</string>
+    <string name="hello">Hello, %s</string>
+    <string name="home_sub_title">Lets\' browse you favorite movies</string>
+    <string name="categories">Categories</string>
+    <string name="most_popular">Most popular</string>
 
 </resources>

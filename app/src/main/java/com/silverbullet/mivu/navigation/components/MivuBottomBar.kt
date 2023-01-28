@@ -30,7 +30,7 @@ fun MivuBottomBar(
     navController: NavController
 ) {
     if (isVisible) {
-        BottomAppBar {
+        BottomAppBar(modifier = Modifier.height(72.dp)) {
             BottomNavigation(modifier = Modifier.fillMaxSize()) {
                 Row(
                     modifier = Modifier
@@ -45,6 +45,9 @@ fun MivuBottomBar(
                             itemInfo = navItemInfo
                         ) { route ->
                             navController.navigate(route){
+                                if(route == defaultRoute){
+                                    launchSingleTop = true
+                                }
                                 popUpTo(defaultRoute)
                             }
                         }
