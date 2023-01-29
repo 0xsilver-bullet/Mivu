@@ -1,5 +1,6 @@
 package com.silverbullet.mivu.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
@@ -21,6 +22,7 @@ import com.silverbullet.mivu.navigation.components.MivuTopBar
 import com.silverbullet.mivu.navigation.utils.NavigationConstants
 import com.silverbullet.mivu.navigation.utils.Screen
 
+@ExperimentalAnimationApi
 @Composable
 fun MivuNavHost(navController: NavHostController, startDestination: String) {
 
@@ -65,6 +67,7 @@ fun MivuNavHost(navController: NavHostController, startDestination: String) {
     }
 }
 
+@ExperimentalAnimationApi
 fun NavGraphBuilder.setupRoutes(navController: NavController) {
     composable(Screen.StartScreen.route) {
         StartScreen(

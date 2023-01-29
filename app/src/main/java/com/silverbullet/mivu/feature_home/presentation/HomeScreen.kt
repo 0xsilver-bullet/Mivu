@@ -19,7 +19,7 @@ import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.domain.model.CategoryItem
 import com.silverbullet.mivu.core.domain.model.MovieInfo
 import com.silverbullet.mivu.core.presentation.components.CategoryCard
-import com.silverbullet.mivu.core.presentation.components.DefaultHorizontalList
+import com.silverbullet.mivu.core.presentation.components.DefaultList
 import com.silverbullet.mivu.core.presentation.components.DefaultTextInput
 import com.silverbullet.mivu.core.presentation.components.MovieInfoItem
 import com.silverbullet.mivu.core.presentation.ui.theme.*
@@ -104,7 +104,7 @@ fun HomeScreen(navCallback: (Screen) -> Unit) {
             modifier = Modifier.fillMaxHeight(0.3f)
         )
         Spacer(modifier = Modifier.height(LargeSpace))
-        DefaultHorizontalList(
+        DefaultList(
             title = stringResource(id = R.string.categories),
             modifier = Modifier.padding(start = PaddingLarge)
         ) {
@@ -118,7 +118,7 @@ fun HomeScreen(navCallback: (Screen) -> Unit) {
             }
         }
         Spacer(modifier = Modifier.height(LargeSpace))
-        DefaultHorizontalList(
+        DefaultList(
             title = stringResource(id = R.string.most_popular),
             modifier = Modifier.padding(start = PaddingLarge)
         ) {

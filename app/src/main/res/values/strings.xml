@@ -38,5 +38,10 @@
     <string name="home_sub_title">Lets\' browse you favorite movies</string>
     <string name="categories">Categories</string>
     <string name="most_popular">Most popular</string>
+    <string name="type_something">Type something</string>
+    <string name="cancel">Cancel</string>
+    <string name="recommended">Recommended for you</string>
+    <string name="see_all">See All</string>
+    <string name="actors">Actors</string>
 
 </resources>
