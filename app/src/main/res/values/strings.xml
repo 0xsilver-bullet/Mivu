@@ -43,5 +43,7 @@
     <string name="recommended">Recommended for you</string>
     <string name="see_all">See All</string>
     <string name="actors">Actors</string>
+    <string name="no_favorites">Favorites list is empty</string>
+    <string name="movie_time">%d minutes</string>
 
 </resources>
