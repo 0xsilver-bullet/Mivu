@@ -45,5 +45,10 @@
     <string name="actors">Actors</string>
     <string name="no_favorites">Favorites list is empty</string>
     <string name="movie_time">%d minutes</string>
+    <string name="edit_profile_button">Opens Edit profiel screen</string>
+    <string name="account">Account</string>
+    <string name="change_password">Change Password</string>
+    <string name="show_adult_content">Show Adult Content</string>
+    <string name="general">General</string>
 
 </resources>

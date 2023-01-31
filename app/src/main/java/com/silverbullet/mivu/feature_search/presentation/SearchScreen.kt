@@ -33,9 +33,9 @@ fun SearchScreen(viewModel: SearchViewModel = hiltViewModel()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = PaddingLarge)
+            .padding(horizontal = LocalSpacing.current.largeSpace)
     ) {
-        Spacer(modifier = Modifier.height(SmallSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
         Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
             DefaultTextInput(
                 value = searchText.value,
@@ -57,7 +57,7 @@ fun SearchScreen(viewModel: SearchViewModel = hiltViewModel()) {
                     color = Color.White,
                     style = MaterialTheme.typography.h6,
                     modifier = Modifier
-                        .padding(start = PaddingSmall)
+                        .padding(start = LocalSpacing.current.smallSpace)
                         .clickable { viewModel.cancelSearch() }
                 )
             }
@@ -67,7 +67,7 @@ fun SearchScreen(viewModel: SearchViewModel = hiltViewModel()) {
                 false -> {
                     // Show Recommended for you section
                     RecommendedForYou(
-                        modifier = Modifier.padding(top = LargeSpace),
+                        modifier = Modifier.padding(top = LocalSpacing.current.largeSpace),
                         recommendedMovies = recommendedMovies.value
                     )
                 }
@@ -76,7 +76,7 @@ fun SearchScreen(viewModel: SearchViewModel = hiltViewModel()) {
                     searchResults.value?.let { results ->
                         SearchResultsSection(
                             searchResults = results,
-                            modifier = Modifier.padding(top = LargeSpace)
+                            modifier = Modifier.padding(top = LocalSpacing.current.largeSpace)
                         )
                     }
                 }

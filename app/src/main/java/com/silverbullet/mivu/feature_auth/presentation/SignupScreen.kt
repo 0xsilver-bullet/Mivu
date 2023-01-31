@@ -17,7 +17,7 @@ fun SignupScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = PaddingLarge),
+            .padding(horizontal = LocalSpacing.current.largeSpace),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.fillMaxHeight(0.1f))
@@ -26,7 +26,7 @@ fun SignupScreen() {
             style = MaterialTheme.typography.h2,
             color = Color.White
         )
-        Spacer(modifier = Modifier.height(SmallSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
         Text(
             text = stringResource(id = R.string.sub_signup_title),
             style = MaterialTheme.typography.h6,
@@ -41,7 +41,7 @@ fun SignupScreen() {
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(LargeSpace))
+            Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
             OutlinedTextField(
                 value = "",
                 onValueChange = {},
@@ -49,7 +49,7 @@ fun SignupScreen() {
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(LargeSpace))
+            Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
             OutlinedTextField(
                 value = "",
                 onValueChange = {},

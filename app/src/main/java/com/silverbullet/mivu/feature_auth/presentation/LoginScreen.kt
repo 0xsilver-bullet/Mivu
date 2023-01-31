@@ -19,7 +19,7 @@ fun LoginScreen(navCallback: (Screen) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = PaddingLarge),
+            .padding(horizontal = LocalSpacing.current.largeSpace),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.fillMaxHeight(0.1f))
@@ -28,7 +28,7 @@ fun LoginScreen(navCallback: (Screen) -> Unit) {
             style = MaterialTheme.typography.h2,
             color = Color.White
         )
-        Spacer(modifier = Modifier.height(SmallSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
         Text(
             text = stringResource(id = R.string.request_credentials),
             style = MaterialTheme.typography.h6,
@@ -43,7 +43,7 @@ fun LoginScreen(navCallback: (Screen) -> Unit) {
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(LargeSpace))
+            Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
             OutlinedTextField(
                 value = "",
                 onValueChange = {},
@@ -51,7 +51,7 @@ fun LoginScreen(navCallback: (Screen) -> Unit) {
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(PaddingSmall))
+            Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
             Text(
                 text = stringResource(id = R.string.forgot_password),
                 style = MaterialTheme.typography.h6,

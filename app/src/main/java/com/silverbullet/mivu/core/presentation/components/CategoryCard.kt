@@ -16,10 +16,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.silverbullet.mivu.core.domain.model.CategoryItem
-import com.silverbullet.mivu.core.presentation.ui.theme.BlueAccent
-import com.silverbullet.mivu.core.presentation.ui.theme.Dark
-import com.silverbullet.mivu.core.presentation.ui.theme.PaddingSmall
-import com.silverbullet.mivu.core.presentation.ui.theme.Soft
+import com.silverbullet.mivu.core.presentation.ui.theme.*
 
 @Composable
 fun CategoryCard(
@@ -27,7 +24,7 @@ fun CategoryCard(
     selected: Boolean,
     onClick: (CategoryItem) -> Unit,
     textStyle: TextStyle = MaterialTheme.typography.h6,
-    verticalPadding: Dp = PaddingSmall,
+    verticalPadding: Dp = LocalSpacing.current.smallSpace,
     horizontalPadding: Dp = 32.dp
 ) {
     val boxModifier = Modifier

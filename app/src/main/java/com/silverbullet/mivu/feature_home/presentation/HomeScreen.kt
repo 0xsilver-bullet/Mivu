@@ -55,7 +55,7 @@ fun HomeScreen(navCallback: (Screen) -> Unit) {
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = PaddingLarge)
+                .padding(horizontal = LocalSpacing.current.largeSpace)
         )
         Spacer(modifier = Modifier.height(32.dp))
         var searchInput by remember {
@@ -75,9 +75,9 @@ fun HomeScreen(navCallback: (Screen) -> Unit) {
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = PaddingLarge)
+                .padding(horizontal = LocalSpacing.current.largeSpace)
         )
-        Spacer(modifier = Modifier.height(LargeSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
         UpcomingMoviesSlider(
             upcomingMovies = listOf(
                 UpcomingMovie(
@@ -103,10 +103,10 @@ fun HomeScreen(navCallback: (Screen) -> Unit) {
             },
             modifier = Modifier.fillMaxHeight(0.3f)
         )
-        Spacer(modifier = Modifier.height(LargeSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
         DefaultList(
             title = stringResource(id = R.string.categories),
-            modifier = Modifier.padding(start = PaddingLarge)
+            modifier = Modifier.padding(start = LocalSpacing.current.largeSpace)
         ) {
             items(1000) {
                 CategoryCard(
@@ -117,10 +117,10 @@ fun HomeScreen(navCallback: (Screen) -> Unit) {
                 Spacer(modifier = Modifier.width(4.dp))
             }
         }
-        Spacer(modifier = Modifier.height(LargeSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
         DefaultList(
             title = stringResource(id = R.string.most_popular),
-            modifier = Modifier.padding(start = PaddingLarge)
+            modifier = Modifier.padding(start = LocalSpacing.current.largeSpace)
         ) {
             items(10000) {
                 MovieInfoItem(

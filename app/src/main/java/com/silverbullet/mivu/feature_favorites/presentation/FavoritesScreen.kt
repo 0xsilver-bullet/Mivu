@@ -12,8 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.silverbullet.mivu.R
-import com.silverbullet.mivu.core.presentation.ui.theme.PaddingLarge
-import com.silverbullet.mivu.core.presentation.ui.theme.SmallSpace
+import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 import com.silverbullet.mivu.feature_favorites.presentation.components.DetailedMovieItem
 
 @Composable
@@ -24,11 +23,11 @@ fun FavoritesScreen(viewModel: FavoritesViewModel = hiltViewModel()) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = PaddingLarge)
+                .padding(horizontal = LocalSpacing.current.largeSpace)
         ) {
             items(movies.value) { movieDetails ->
                 DetailedMovieItem(movieDetails = movieDetails)
-                Spacer(modifier = Modifier.height(SmallSpace))
+                Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
             }
         }
     } else {

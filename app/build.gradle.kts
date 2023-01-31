@@ -7,14 +7,14 @@ plugins {
 
 android {
     namespace = "com.silverbullet.mivu"
-    compileSdk = 33
+    compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = "com.silverbullet.mivu"
-        minSdk = 21
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ProjectConfig.appId
+        minSdk = ProjectConfig.minSdk
+        targetSdk = ProjectConfig.targetSdk
+        versionCode = ProjectConfig.versionCode
+        versionName = ProjectConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -64,51 +64,36 @@ android {
 
 dependencies {
 
-    val compose_version = "1.3.3"
-    val navVersion = "2.5.2"
-    val roomVersion = "2.4.3"
+    implementation (AndroidX.coreKtx)
+    implementation(AndroidX.lifecycleRuntimeKtx)
+    implementation(AndroidX.splashscreen)
 
-    implementation ("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+    implementation(Compose.activity)
+    implementation(Compose.ui)
+    implementation(Compose.uiToolingPreview)
+    implementation(Compose.navigation)
+    implementation(Compose.material)
+    implementation(Compose.hiltNavigationCompose)
 
-    implementation("androidx.compose.material:material:1.3.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(DaggerHilt.hiltAndroid)
+    kapt(DaggerHilt.hiltCompiler)
 
-    // Jetpack Compose
-    implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.compose.ui:ui:$compose_version")
-    implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
-    debugImplementation("androidx.compose.ui:ui-tooling:$compose_version")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+    implementation(Retrofit.retrofit)
 
-    // Hilt
-    implementation("com.google.dagger:hilt-android:2.44.2")
-    kapt("com.google.dagger:hilt-compiler:2.44.2")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation(Coil.coilCompose)
 
-    // Splash
-    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation(Accompanist.pager)
 
-    // Navigation
-    implementation("androidx.navigation:navigation-compose:$navVersion")
+    implementation(Room.runtime)
+    implementation(Room.roomKtx)
+    kapt(Room.compiler)
 
-    // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation(Timber.timber)
 
-    // Coil
-    implementation("io.coil-kt:coil-compose:2.2.2")
+    testImplementation(Testing.junit4)
+    testImplementation(Testing.composeUiTest)
 
-    // Pager
-    implementation("com.google.accompanist:accompanist-pager:0.28.0")
+    androidTestImplementation(Testing.composeUiTest)
+    androidTestImplementation(Testing.junitAndroidExt)
 
-    // Room
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
-
-    // Timber Logger
-    implementation("com.jakewharton.timber:timber:5.0.1")
 }

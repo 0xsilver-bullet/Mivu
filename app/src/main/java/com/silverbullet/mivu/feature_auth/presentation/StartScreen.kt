@@ -21,7 +21,7 @@ fun StartScreen(navCallback: (Screen) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = PaddingLarge),
+            .padding(horizontal = LocalSpacing.current.largeSpace),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -29,13 +29,13 @@ fun StartScreen(navCallback: (Screen) -> Unit) {
             painter = painterResource(id = R.drawable.ic_main),
             contentDescription = stringResource(id = R.string.app_logo)
         )
-        Spacer(modifier = Modifier.height(LargeSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
         Text(
             text = stringResource(id = R.string.app_name),
             style = MaterialTheme.typography.h1,
             color = Color.White
         )
-        Spacer(modifier = Modifier.height(SmallSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
         Text(
             text = stringResource(id = R.string.start_text),
             style = MaterialTheme.typography.h5,
@@ -43,7 +43,7 @@ fun StartScreen(navCallback: (Screen) -> Unit) {
         )
         Spacer(modifier = Modifier.height(64.dp))
         DefaultAuthButton(textRes = R.string.signup) { navCallback(Screen.SignupScreen) }
-        Spacer(modifier = Modifier.height(LargeSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,

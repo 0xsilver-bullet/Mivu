@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.silverbullet.mivu.core.presentation.ui.theme.MediumSpace
+import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 import com.silverbullet.mivu.core.presentation.ui.theme.Soft
 import com.silverbullet.mivu.navigation.model.TopBarConfig
 
@@ -42,7 +42,7 @@ fun MivuTopBar(
                     Box(
                         modifier = Modifier
                             .align(Alignment.CenterStart)
-                            .padding(start = MediumSpace)
+                            .padding(start = LocalSpacing.current.mediumSpace)
                             .size(32.dp)
                             .clip(RoundedCornerShape(12.dp))
                             .background(Soft)

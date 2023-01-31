@@ -15,8 +15,7 @@ import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.domain.model.MovieInfo
 import com.silverbullet.mivu.core.presentation.components.MovieInfoItem
 import com.silverbullet.mivu.core.presentation.ui.theme.BlueAccent
-import com.silverbullet.mivu.core.presentation.ui.theme.PaddingSmall
-import com.silverbullet.mivu.core.presentation.ui.theme.SmallSpace
+import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 
 @Composable
 fun RecommendedForYou(
@@ -41,11 +40,11 @@ fun RecommendedForYou(
                 color = BlueAccent
             )
         }
-        Spacer(modifier = Modifier.height(SmallSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-            verticalArrangement = Arrangement.spacedBy(PaddingSmall),
-            horizontalArrangement = Arrangement.spacedBy(PaddingSmall)
+            verticalArrangement = Arrangement.spacedBy(LocalSpacing.current.smallSpace),
+            horizontalArrangement = Arrangement.spacedBy(LocalSpacing.current.smallSpace)
         ) {
             items(recommendedMovies) { movieInfo ->
                 MovieInfoItem(

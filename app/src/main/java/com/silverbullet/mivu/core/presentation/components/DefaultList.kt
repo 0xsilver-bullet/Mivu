@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.silverbullet.mivu.core.presentation.ui.theme.MediumSpace
+import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 
 
 enum class DefaultListConfig {
@@ -40,7 +40,7 @@ fun DefaultList(
             )
             action()
         }
-        Spacer(modifier = Modifier.height(MediumSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.mediumSpace))
         when (config) {
             DefaultListConfig.HORIZONTAL -> LazyRow(content = { content() })
             DefaultListConfig.VERTICAL -> LazyColumn(content = { content() })

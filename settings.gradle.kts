@@ -18,4 +18,4 @@ dependencyResolutionManagement {
 
 }
 rootProject.name = "Mivu"
-include ':app'
+include(":app")

@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.calculateCurrentOffsetForPage
-import com.silverbullet.mivu.core.presentation.ui.theme.PaddingMedium
+import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 import com.silverbullet.mivu.feature_home.domain.model.UpcomingMovie
 import kotlin.math.absoluteValue
 import kotlin.random.Random
@@ -82,7 +82,7 @@ fun UpcomingMovieItem(
         Column(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .padding(start = PaddingMedium, bottom = PaddingMedium)
+                .padding(start = LocalSpacing.current.mediumSpace, bottom = LocalSpacing.current.mediumSpace)
         ) {
             Text(
                 text = item.title,

@@ -18,7 +18,7 @@ fun CreateNewPasswordScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = PaddingLarge),
+            .padding(horizontal = LocalSpacing.current.largeSpace),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.fillMaxHeight(0.1f))
@@ -27,7 +27,7 @@ fun CreateNewPasswordScreen() {
             style = MaterialTheme.typography.h2,
             color = Color.White
         )
-        Spacer(modifier = Modifier.height(SmallSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
         Text(
             text = stringResource(id = R.string.enter_new_password),
             fontSize = 14.sp,
@@ -41,7 +41,7 @@ fun CreateNewPasswordScreen() {
             singleLine = true,
             modifier = Modifier.fillMaxWidth()
         )
-        Spacer(modifier = Modifier.height(LargeSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
         OutlinedTextField(
             value = "",
             onValueChange = {},

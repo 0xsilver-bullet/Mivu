@@ -13,8 +13,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.silverbullet.mivu.core.presentation.ui.theme.PaddingSmall
 import com.silverbullet.mivu.R
+import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 import com.silverbullet.mivu.core.presentation.ui.theme.Orange
 
 @Composable
@@ -26,7 +26,7 @@ fun RatingItem(
         modifier = modifier
             .clip(RoundedCornerShape(8.dp))
             .background(Color(0xA3252836))
-            .padding(horizontal = PaddingSmall, vertical = 4.dp)
+            .padding(horizontal = LocalSpacing.current.smallSpace, vertical = 4.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(

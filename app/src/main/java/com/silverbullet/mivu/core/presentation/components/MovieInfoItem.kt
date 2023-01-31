@@ -45,7 +45,7 @@ fun MovieInfoItem(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .padding(PaddingSmall),
+                .padding(LocalSpacing.current.smallSpace),
             horizontalAlignment = Alignment.Start
         ) {
             Text(
@@ -66,7 +66,7 @@ fun MovieInfoItem(
             rating = movieInfo.rating,
             modifier = Modifier
                 .align(Alignment.TopEnd)
-                .padding(PaddingSmall)
+                .padding(LocalSpacing.current.smallSpace)
         )
     }
 }

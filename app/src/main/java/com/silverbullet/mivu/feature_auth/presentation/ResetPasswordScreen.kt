@@ -20,7 +20,7 @@ fun ResetPasswordScreen(navCallback: (Screen) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = PaddingLarge),
+            .padding(horizontal = LocalSpacing.current.largeSpace),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.fillMaxHeight(0.1f))
@@ -30,7 +30,7 @@ fun ResetPasswordScreen(navCallback: (Screen) -> Unit) {
             fontFamily = Montserrat,
             color = Color.White
         )
-        Spacer(modifier = Modifier.height(SmallSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.smallSpace))
         Text(
             text = stringResource(id = R.string.recover_password_title),
             style = MaterialTheme.typography.h5,

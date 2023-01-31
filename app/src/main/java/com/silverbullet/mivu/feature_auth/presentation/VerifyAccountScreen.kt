@@ -25,7 +25,7 @@ fun VerifyAccountScreen(navCallback: (Screen) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = PaddingLarge),
+            .padding(horizontal = LocalSpacing.current.largeSpace),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.fillMaxHeight(0.1f))
@@ -34,7 +34,7 @@ fun VerifyAccountScreen(navCallback: (Screen) -> Unit) {
             style = MaterialTheme.typography.h2,
             color = Color.White
         )
-        Spacer(modifier = Modifier.height(MediumSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.mediumSpace))
         Text(
             text = buildAnnotatedString {
                 withStyle(SpanStyle(fontSize = 14.sp, color = Color(0xFF7F7E83))) {
@@ -47,7 +47,7 @@ fun VerifyAccountScreen(navCallback: (Screen) -> Unit) {
             },
             textAlign = TextAlign.Center
         )
-        Spacer(modifier = Modifier.height(LargeSpace))
+        Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
 
         var input by remember {
             mutableStateOf("")

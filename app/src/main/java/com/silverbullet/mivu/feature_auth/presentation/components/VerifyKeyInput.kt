@@ -16,7 +16,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.silverbullet.mivu.core.presentation.ui.theme.BlueAccent
-import com.silverbullet.mivu.core.presentation.ui.theme.MediumSpace
+import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 import com.silverbullet.mivu.core.presentation.ui.theme.Soft
 import timber.log.Timber
 
@@ -30,7 +30,7 @@ fun VerifyKeyInput(
     boxSize: Dp = 64.dp,
     boxColor: Color = Soft,
     borderColor: Color = BlueAccent,
-    keySpace: Dp = MediumSpace,
+    keySpace: Dp = LocalSpacing.current.mediumSpace,
     keyBorderRadius: Dp = 12.dp,
     keyLength: Int = 4,
 ) {

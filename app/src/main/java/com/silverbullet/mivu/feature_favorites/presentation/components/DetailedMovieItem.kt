@@ -17,11 +17,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.silverbullet.mivu.core.domain.model.MovieInfo
-import com.silverbullet.mivu.core.presentation.ui.theme.MediumSpace
 import kotlin.random.Random
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.components.RatingItem
-import com.silverbullet.mivu.core.presentation.ui.theme.PaddingSmall
+import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 import com.silverbullet.mivu.core.presentation.ui.theme.TextGrey
 
 @Composable
@@ -40,7 +39,7 @@ fun DetailedMovieItem(
                     .clip(RoundedCornerShape(8.dp))
                     .background(Color(Random.nextLong(0, 0xFFFFFFFF)))
             )
-            Spacer(modifier = Modifier.width(MediumSpace))
+            Spacer(modifier = Modifier.width(LocalSpacing.current.mediumSpace))
             Column(horizontalAlignment = Alignment.Start) {
                 Text(
                     text = movieDetails.title,
@@ -62,9 +61,7 @@ fun DetailedMovieItem(
             rating = movieDetails.rating,
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .padding(
-                    PaddingSmall
-                )
+                .padding(LocalSpacing.current.smallSpace)
         )
     }
 }
