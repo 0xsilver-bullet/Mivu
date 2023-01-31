@@ -15,6 +15,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.silverbullet.mivu.feature_auth.presentation.*
 import com.silverbullet.mivu.feature_favorites.presentation.FavoritesScreen
 import com.silverbullet.mivu.feature_home.presentation.HomeScreen
+import com.silverbullet.mivu.feature_profile.presentation.EditProfileScreen
 import com.silverbullet.mivu.feature_profile.presentation.ProfileScreen
 import com.silverbullet.mivu.feature_search.presentation.SearchScreen
 import com.silverbullet.mivu.navigation.components.MivuBottomBar
@@ -126,6 +127,13 @@ fun NavGraphBuilder.setupRoutes(navController: NavController) {
     }
 
     composable(Screen.ProfileScreen.route) {
-        ProfileScreen()
+        ProfileScreen(
+            navCallback = { screen -> navController.navigate(screen.route) }
+        )
     }
+
+    composable(Screen.EditProfileScreen.route) {
+        EditProfileScreen()
+    }
+
 }

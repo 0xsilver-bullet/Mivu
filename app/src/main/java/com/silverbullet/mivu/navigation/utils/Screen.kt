@@ -73,6 +73,8 @@ sealed class Screen(val route: String, val topBarConfig: TopBarConfig) {
 
     object ProfileScreen : Screen("profile-screen", TopBarConfig())
 
+    object EditProfileScreen: Screen("edit-profile-screen",TopBarConfig())
+
     object MovieDetailsScreen : Screen("movie-details", TopBarConfig())
 
     companion object {

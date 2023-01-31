@@ -16,9 +16,13 @@ import com.silverbullet.mivu.feature_profile.presentation.components.ProfileInfo
 import com.silverbullet.mivu.feature_profile.presentation.components.SettingItem
 import com.silverbullet.mivu.feature_profile.presentation.components.SettingsContainer
 import com.silverbullet.mivu.feature_profile.presentation.components.UserPrefToggler
+import com.silverbullet.mivu.navigation.utils.Screen
 
 @Composable
-fun ProfileScreen(viewModel: ProfileViewModel = hiltViewModel()) {
+fun ProfileScreen(
+    viewModel: ProfileViewModel = hiltViewModel(),
+    navCallback: (Screen) -> Unit
+) {
 
     val userState = viewModel.userState.collectAsState()
     val userPrefs = viewModel.userPrefs.collectAsState()
@@ -40,7 +44,13 @@ fun ProfileScreen(viewModel: ProfileViewModel = hiltViewModel()) {
         )
         Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
         userState.value?.let { user ->
-            ProfileInfo(user = user, modifier = Modifier.fillMaxWidth())
+            ProfileInfo(
+                user = user,
+                modifier = Modifier.fillMaxWidth(),
+                actionCallback = {
+                    navCallback(Screen.EditProfileScreen)
+                }
+            )
         }
         Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
         SettingsContainer(

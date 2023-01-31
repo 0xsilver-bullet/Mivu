@@ -50,5 +50,7 @@
     <string name="change_password">Change Password</string>
     <string name="show_adult_content">Show Adult Content</string>
     <string name="general">General</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save_chagnes">Save Changes</string>
 
 </resources>
