@@ -14,6 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.silverbullet.core_ui.LocalSpacing
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.ui.theme.*
 import com.silverbullet.mivu.feature_auth.presentation.components.DefaultAuthButton

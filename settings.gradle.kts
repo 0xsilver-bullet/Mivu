@@ -19,3 +19,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Mivu"
 include(":app")
+include(":core-ui")

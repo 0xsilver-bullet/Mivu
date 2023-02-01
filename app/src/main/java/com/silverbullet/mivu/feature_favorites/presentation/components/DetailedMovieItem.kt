@@ -16,11 +16,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.silverbullet.core_ui.LocalSpacing
 import com.silverbullet.mivu.core.domain.model.MovieInfo
 import kotlin.random.Random
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.components.RatingItem
-import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 import com.silverbullet.mivu.core.presentation.ui.theme.TextGrey
 
 @Composable

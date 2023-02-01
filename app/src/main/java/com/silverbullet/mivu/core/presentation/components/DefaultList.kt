@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
+import com.silverbullet.core_ui.LocalSpacing
 
 
 enum class DefaultListConfig {

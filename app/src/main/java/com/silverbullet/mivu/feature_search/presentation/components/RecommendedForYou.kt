@@ -11,11 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import com.silverbullet.core_ui.LocalSpacing
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.domain.model.MovieInfo
 import com.silverbullet.mivu.core.presentation.components.MovieInfoItem
 import com.silverbullet.mivu.core.presentation.ui.theme.BlueAccent
-import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 
 @Composable
 fun RecommendedForYou(

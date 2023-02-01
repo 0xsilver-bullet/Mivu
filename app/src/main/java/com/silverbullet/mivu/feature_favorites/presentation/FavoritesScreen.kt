@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.silverbullet.core_ui.LocalSpacing
 import com.silverbullet.mivu.R
-import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
 import com.silverbullet.mivu.feature_favorites.presentation.components.DetailedMovieItem
 
 @Composable

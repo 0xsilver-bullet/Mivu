@@ -53,7 +53,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0"
+        kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
     }
     packagingOptions {
         resources {
@@ -89,6 +89,8 @@ dependencies {
     kapt(Room.compiler)
 
     implementation(Timber.timber)
+
+    implementation(project(Modules.coreUi))
 
     testImplementation(Testing.junit4)
     testImplementation(Testing.composeUiTest)

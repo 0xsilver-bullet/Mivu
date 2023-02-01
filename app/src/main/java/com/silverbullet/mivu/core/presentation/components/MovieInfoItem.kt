@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.silverbullet.core_ui.LocalSpacing
 import com.silverbullet.mivu.core.domain.model.MovieInfo
 import com.silverbullet.mivu.core.presentation.ui.theme.*
 import kotlin.random.Random

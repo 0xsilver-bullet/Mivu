@@ -15,6 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.silverbullet.core_ui.LocalSpacing
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.domain.model.CategoryItem
 import com.silverbullet.mivu.core.domain.model.MovieInfo

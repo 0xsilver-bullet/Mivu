@@ -8,6 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.silverbullet.core_ui.LocalSpacing
+import com.silverbullet.core_ui.MivuTextField
 import com.silverbullet.mivu.R
 import com.silverbullet.mivu.core.presentation.ui.theme.*
 import com.silverbullet.mivu.feature_auth.presentation.components.DefaultAuthButton
@@ -34,28 +36,35 @@ fun SignupScreen() {
         )
         Spacer(modifier = Modifier.height(64.dp))
         Column(modifier = Modifier.fillMaxWidth()) {
-            OutlinedTextField(
+            MivuTextField(
                 value = "",
-                onValueChange = {},
-                label = { Text(text = stringResource(id = R.string.full_name)) },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth()
+                onValueChanged = {},
+                modifier = Modifier.fillMaxWidth(),
+                textStyle = MaterialTheme.typography.h5.copy(Color.Gray),
+                hintStyle = MaterialTheme.typography.h6.copy(color = Color.White),
+                hintText = stringResource(id = R.string.full_name),
+                singleLine = true
             )
             Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
-            OutlinedTextField(
+            MivuTextField(
                 value = "",
-                onValueChange = {},
-                label = { Text(text = stringResource(id = R.string.email_address)) },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth()
+                onValueChanged = {},
+                modifier = Modifier.fillMaxWidth(),
+                textStyle = MaterialTheme.typography.h5.copy(Color.Gray),
+                hintStyle = MaterialTheme.typography.h6.copy(color = Color.White),
+                hintText = stringResource(id = R.string.email_address),
+                singleLine = true
             )
             Spacer(modifier = Modifier.height(LocalSpacing.current.largeSpace))
-            OutlinedTextField(
+            MivuTextField(
                 value = "",
-                onValueChange = {},
-                label = { Text(text = stringResource(id = R.string.password)) },
+                onValueChanged = {},
+                modifier = Modifier.fillMaxWidth(),
+                textStyle = MaterialTheme.typography.h5.copy(Color.Gray),
+                hintStyle = MaterialTheme.typography.h6.copy(color = Color.White),
+                hintText = stringResource(id = R.string.password),
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth()
+                hideInput = true
             )
         }
         Spacer(modifier = Modifier.height(40.dp))

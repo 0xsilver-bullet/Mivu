@@ -1,8 +1,9 @@
-package com.silverbullet.mivu.core.presentation.ui.theme
+package com.silverbullet.core_ui
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+
 
 data class Dimensions(
     val default: Dp = 0.dp,

@@ -3,10 +3,14 @@ package com.silverbullet.mivu.feature_profile.presentation.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import com.silverbullet.core_ui.LocalSpacing
+import com.silverbullet.core_ui.MivuTextField
+import com.silverbullet.mivu.R
 
 @Composable
 fun EditableUserFields(
@@ -23,20 +27,34 @@ fun EditableUserFields(
         verticalArrangement = Arrangement
             .spacedBy(LocalSpacing.current.largeSpace)
     ) {
-        OutlinedTextField(
+
+        MivuTextField(
             value = username,
-            onValueChange = onUsernameChanged,
-            modifier = Modifier.fillMaxWidth()
+            onValueChanged = onUsernameChanged,
+            modifier = Modifier.fillMaxWidth(),
+            textStyle = MaterialTheme.typography.h5.copy(Color.Gray),
+            hintStyle = MaterialTheme.typography.h6.copy(color = Color.White),
+            hintText = stringResource(id = R.string.full_name),
+            singleLine = true
         )
-        OutlinedTextField(
+        MivuTextField(
             value = email,
-            onValueChange = onEmailChanged,
-            modifier = Modifier.fillMaxWidth()
+            onValueChanged = onEmailChanged,
+            modifier = Modifier.fillMaxWidth(),
+            textStyle = MaterialTheme.typography.h5.copy(Color.Gray),
+            hintStyle = MaterialTheme.typography.h6.copy(color = Color.White),
+            hintText = stringResource(id = R.string.email),
+            singleLine = true
         )
-        OutlinedTextField(
+        MivuTextField(
             value = password,
-            onValueChange = onPasswordChanged,
-            modifier = Modifier.fillMaxWidth()
+            onValueChanged = onPasswordChanged,
+            modifier = Modifier.fillMaxWidth(),
+            textStyle = MaterialTheme.typography.h5.copy(Color.Gray),
+            hintStyle = MaterialTheme.typography.h6.copy(color = Color.White),
+            hintText = stringResource(id = R.string.full_name),
+            singleLine = true,
+            hideInput = true
         )
     }
 }

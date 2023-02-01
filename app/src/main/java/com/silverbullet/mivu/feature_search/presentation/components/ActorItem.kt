@@ -13,7 +13,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.silverbullet.mivu.core.presentation.ui.theme.LocalSpacing
+import com.silverbullet.core_ui.LocalSpacing
 import com.silverbullet.mivu.feature_search.domain.model.Actor
 
 @Composable

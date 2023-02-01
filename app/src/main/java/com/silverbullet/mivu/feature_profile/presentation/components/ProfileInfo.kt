@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.silverbullet.core_ui.LocalSpacing
 import com.silverbullet.mivu.core.domain.model.User
 import com.silverbullet.mivu.core.presentation.ui.theme.*
 import com.silverbullet.mivu.R
