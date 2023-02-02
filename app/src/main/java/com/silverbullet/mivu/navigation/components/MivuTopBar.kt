@@ -1,26 +1,20 @@
 package com.silverbullet.mivu.navigation.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.silverbullet.core_ui.LocalSpacing
-import com.silverbullet.mivu.core.presentation.ui.theme.Soft
+import com.silverbullet.core_ui.MivuIconButton
 import com.silverbullet.mivu.navigation.model.TopBarConfig
+import com.silverbullet.mivu.R
 
 @Composable
 fun MivuTopBar(
@@ -39,26 +33,17 @@ fun MivuTopBar(
                     )
                 }
                 if (topBarConfig.iconRes != null) {
-                    Box(
+                    MivuIconButton(
                         modifier = Modifier
-                            .align(Alignment.CenterStart)
                             .padding(start = LocalSpacing.current.mediumSpace)
-                            .size(32.dp)
-                            .clip(RoundedCornerShape(12.dp))
-                            .background(Soft)
-                            .clickable {
-                                topBarConfig.iconCallback?.let { callback ->
-                                    callback(navController)
-                                }
-                            },
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(
-                            imageVector = ImageVector.vectorResource(id = topBarConfig.iconRes),
-                            contentDescription = null,
-                            tint = Color.White
-                        )
-                    }
+                            .align(Alignment.CenterStart),
+                        iconRes = R.drawable.ic_back,
+                        callback = {
+                            topBarConfig.iconCallback?.let { callback ->
+                                callback(navController)
+                            }
+                        }
+                    )
                 }
             }
         }

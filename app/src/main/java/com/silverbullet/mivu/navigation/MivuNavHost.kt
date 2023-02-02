@@ -15,6 +15,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.silverbullet.mivu.feature_auth.presentation.*
 import com.silverbullet.mivu.feature_favorites.presentation.FavoritesScreen
 import com.silverbullet.mivu.feature_home.presentation.HomeScreen
+import com.silverbullet.mivu.feature_movie_details.presentation.MovieDetailsScreen
 import com.silverbullet.mivu.feature_profile.presentation.EditProfileScreen
 import com.silverbullet.mivu.feature_profile.presentation.ProfileScreen
 import com.silverbullet.mivu.feature_search.presentation.SearchScreen
@@ -134,6 +135,12 @@ fun NavGraphBuilder.setupRoutes(navController: NavController) {
 
     composable(Screen.EditProfileScreen.route) {
         EditProfileScreen()
+    }
+
+    composable(Screen.MovieDetailsScreen.route) {
+        MovieDetailsScreen(
+            navigateBack = { navController.navigateUp() }
+        )
     }
 
 }

@@ -100,7 +100,7 @@ fun HomeScreen(navCallback: (Screen) -> Unit) {
                 )
             ),
             onClick = {
-                // TODO: Navigate to Movie Details}
+                navCallback(Screen.MovieDetailsScreen)
             },
             modifier = Modifier.fillMaxHeight(0.3f)
         )

@@ -48,7 +48,7 @@ fun MivuTextField(
     ) {
         Box(
             modifier = modifier
-                .defaultMinSize(minHeight = 42.dp)
+                .defaultMinSize(minHeight = 48.dp)
                 .drawBehind {
                     drawInputFieldBroder(
                         24.dp,
