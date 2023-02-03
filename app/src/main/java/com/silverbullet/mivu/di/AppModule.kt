@@ -2,7 +2,7 @@ package com.silverbullet.mivu.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.silverbullet.core.data.utils.SharedPrefKeys
+import com.silverbullet.core.data.Preferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ object AppModule {
     fun provideSharedPref(@ApplicationContext app: Context): SharedPreferences {
         return app
             .getSharedPreferences(
-                SharedPrefKeys.SHARED_PREF_NAME,
+                Preferences.SHARED_PREF_NAME,
                 Context.MODE_PRIVATE
             )
     }

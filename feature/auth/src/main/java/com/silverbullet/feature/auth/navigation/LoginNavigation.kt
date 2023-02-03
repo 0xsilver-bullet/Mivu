@@ -6,16 +6,15 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.silverbullet.feature.auth.LoginScreen
 
-const val loginRoute = "login_route"
+internal const val loginRoute = "login_route"
 
-fun NavController.navigateToLoginScreen(navOptions: NavOptions? = null){
+internal fun NavController.navigateToLoginScreen(navOptions: NavOptions? = null){
     this.navigate(loginRoute,navOptions)
 }
 
-fun NavGraphBuilder.loginScreen(
+internal fun NavGraphBuilder.loginScreen(
     onLoggedIn: () -> Unit,
     onForgotPassword: () -> Unit,
-    nestedGraphs: NavGraphBuilder.() -> Unit
 ){
     composable(loginRoute){
         LoginScreen(
@@ -23,5 +22,4 @@ fun NavGraphBuilder.loginScreen(
             onForgotPassword = onForgotPassword
         )
     }
-    nestedGraphs()
 }

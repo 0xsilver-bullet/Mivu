@@ -6,18 +6,16 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.silverbullet.feature.auth.ResetPasswordScreen
 
-const val resetPasswordRoute = "reset-password-route"
+internal const val resetPasswordRoute = "reset-password-route"
 
-fun NavController.navigateToResetPasswordScreen(navOptions: NavOptions? = null) {
+internal fun NavController.navigateToResetPasswordScreen(navOptions: NavOptions? = null) {
     this.navigate(resetPasswordRoute, navOptions)
 }
 
-fun NavGraphBuilder.resetPasswordScreen(
+internal fun NavGraphBuilder.resetPasswordScreen(
     onVerify: () -> Unit,
-    nestedGraphs: NavGraphBuilder.() -> Unit
 ) {
     composable(resetPasswordRoute) {
         ResetPasswordScreen(onVerify)
     }
-    nestedGraphs()
 }

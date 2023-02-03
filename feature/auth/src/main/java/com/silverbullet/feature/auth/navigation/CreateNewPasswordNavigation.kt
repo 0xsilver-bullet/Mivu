@@ -6,13 +6,13 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.silverbullet.feature.auth.CreateNewPasswordScreen
 
-const val createNewPasswordRoute = "create-new-password-route"
+internal const val createNewPasswordRoute = "create-new-password-route"
 
-fun NavController.navigateToCreateNewPasswordScreen(navOptions: NavOptions? = null) {
+internal fun NavController.navigateToCreateNewPasswordScreen(navOptions: NavOptions? = null) {
     this.navigate(createNewPasswordRoute, navOptions)
 }
 
-fun NavGraphBuilder.createNewPasswordScreen() {
+internal fun NavGraphBuilder.createNewPasswordScreen() {
     composable(createNewPasswordRoute) {
         CreateNewPasswordScreen()
     }

@@ -5,11 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.LaunchedEffect
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
+import com.silverbullet.feature.auth.navigation.navigateToAuthenticationGraph
 import com.silverbullet.mivu.ui.theme.MivuTheme
 import com.silverbullet.mivu.navigation.MivuNavHost
+import com.silverbullet.mivu.navigation.mainGraphRoute
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalAnimationApi
@@ -17,19 +19,23 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel by viewModels<MainViewModel>()
+    private var keepSplash = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                viewModel.startDestination.value == null
+                keepSplash
             }
         }
         setContent {
             MivuTheme {
                 val navController = rememberNavController()
-                val startDestination = viewModel.startDestination.collectAsState()
-                startDestination.value?.let { startDestinationRoute ->
-                    MivuNavHost(navController = navController, startDestinationRoute)
+                MivuNavHost(navController = navController, mainGraphRoute)
+                LaunchedEffect(key1 = Unit) {
+                    if(viewModel.isAuthenticationRequired()){
+                        navController.navigateToAuthenticationGraph()
+                    }
+                    keepSplash = false
                 }
             }
         }

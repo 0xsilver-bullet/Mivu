@@ -26,4 +26,9 @@ class AndroidPreferences @Inject constructor(
             .putBoolean(Preferences.KEY_SHOW_ADULT_CONTENT, value)
             .apply()
     }
+
+    override fun isLoggedIn(): Boolean {
+        return sharedPref
+            .getBoolean(Preferences.KEY_IS_LOGGED_IN, false)
+    }
 }

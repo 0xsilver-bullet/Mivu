@@ -1,4 +1,4 @@
-package com.silverbullet.mivu.core.presentation.components
+package com.silverbullet.core.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,10 +15,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.silverbullet.core.model.MovieInfo
-import com.silverbullet.core.ui.LocalSpacing
-import com.silverbullet.core.ui.RatingItem
-import com.silverbullet.core.ui.Soft
-import com.silverbullet.core.ui.TextGrey
 import kotlin.random.Random
 
 @Composable

@@ -6,13 +6,13 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.silverbullet.feature.auth.SignupScreen
 
-const val signupRoute = "signup_route"
+internal const val signupRoute = "signup_route"
 
-fun NavController.navigateToSignupScreen(navOptions: NavOptions? = null) {
+internal fun NavController.navigateToSignupScreen(navOptions: NavOptions? = null) {
     this.navigate(signupRoute, navOptions)
 }
 
-fun NavGraphBuilder.signupScreen() {
+internal fun NavGraphBuilder.signupScreen() {
     composable(signupRoute) {
         SignupScreen()
     }

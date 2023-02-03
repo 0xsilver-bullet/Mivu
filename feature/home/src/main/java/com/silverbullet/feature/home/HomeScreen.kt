@@ -27,7 +27,7 @@ import com.silverbullet.core.model.Category
 import com.silverbullet.core.model.MovieInfo
 import com.silverbullet.core.model.UpcomingMovie
 import com.silverbullet.core.ui.*
-import com.silverbullet.mivu.core.presentation.components.MovieInfoItem
+import com.silverbullet.core.ui.MovieInfoItem
 import kotlin.math.absoluteValue
 import kotlin.random.Random
 

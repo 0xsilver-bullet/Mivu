@@ -28,7 +28,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.silverbullet.core.model.Actor
 import com.silverbullet.core.ui.*
 import com.silverbullet.feature.search.model.SearchResults
-import com.silverbullet.mivu.core.presentation.components.MovieInfoItem
+import com.silverbullet.core.ui.MovieInfoItem
 
 @ExperimentalAnimationApi
 @Composable

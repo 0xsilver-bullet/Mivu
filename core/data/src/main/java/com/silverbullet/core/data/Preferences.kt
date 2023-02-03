@@ -9,8 +9,14 @@ interface Preferences {
 
     fun setShowAdultContent(value: Boolean)
 
+    fun isLoggedIn(): Boolean
+
     companion object {
 
+        const val SHARED_PREF_NAME = "MivuSharedPref"
+
         const val KEY_SHOW_ADULT_CONTENT = "show_adult_content"
+
+        const val KEY_IS_LOGGED_IN = "is_logged_in"
     }
 }

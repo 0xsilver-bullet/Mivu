@@ -15,61 +15,59 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hierarchy
 import com.silverbullet.core.ui.BlueAccent
 import com.silverbullet.core.ui.Soft
-import com.silverbullet.mivu.navigation.model.BottomNavItemInfo
+import com.silverbullet.mivu.navigation.utils.TopLevelDestination
 
 @Composable
 fun MivuBottomBar(
     isVisible: Boolean,
-    defaultRoute: String,
-    currentRoute: String,
-    navItems: List<BottomNavItemInfo>,
+    currentDestination: NavDestination?,
+    destinations: List<TopLevelDestination>,
     horizontalPadding: Dp = 45.dp,
-    navController: NavController
+    onNavigateToDestination: (TopLevelDestination) -> Unit
 ) {
-    if (isVisible) {
-        BottomAppBar(modifier = Modifier.height(72.dp)) {
-            BottomNavigation(modifier = Modifier.fillMaxSize()) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = horizontalPadding),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    navItems.forEach { navItemInfo ->
-                        NavItem(
-                            active = navItemInfo.route == currentRoute,
-                            itemInfo = navItemInfo
-                        ) { route ->
-                            navController.navigate(route){
-                                if(route == defaultRoute){
-                                    launchSingleTop = true
-                                }
-                                popUpTo(defaultRoute)
-                            }
-                        }
-                    }
+    if(isVisible) {
+        BottomNavigation(
+            modifier = Modifier
+                .height(72.dp)
+                .fillMaxSize()
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = horizontalPadding),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                destinations.forEach { destination ->
+                    NavItem(
+                        selected = currentDestination.isTopLevelDestinationInHierarchy(
+                            destination
+                        ),
+                        destination = destination
+                    ) { onNavigateToDestination(it) }
                 }
             }
         }
     }
 }
 
+
 @Composable
 fun NavItem(
-    active: Boolean,
-    itemInfo: BottomNavItemInfo,
+    selected: Boolean,
+    destination: TopLevelDestination,
     selectedColor: Color = BlueAccent,
     selectedBackgroundColor: Color = Soft,
     defaultColor: Color = Color.Gray,
-    navCallback: (String) -> Unit
+    onClick: (TopLevelDestination) -> Unit
 ) {
 
-    val itemColor = if (active) selectedColor else defaultColor
-    val boxModifier = if (active) {
+    val itemColor = if (selected) selectedColor else defaultColor
+    val boxModifier = if (selected) {
         Modifier
             .clip(RoundedCornerShape(16.dp))
             .background(selectedBackgroundColor)
@@ -77,7 +75,7 @@ fun NavItem(
             .padding(12.dp)
     } else {
         Modifier
-            .clickable { navCallback(itemInfo.route) }
+            .clickable { onClick(destination) }
             .padding(12.dp)
     }
 
@@ -87,18 +85,24 @@ fun NavItem(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = ImageVector.vectorResource(id = itemInfo.icon),
+                imageVector = ImageVector.vectorResource(id = destination.iconId),
                 contentDescription = null,
                 tint = itemColor
             )
-            if (active) {
+            if (selected) {
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = stringResource(id = itemInfo.title),
+                    text = stringResource(id = destination.titleId),
                     style = MaterialTheme.typography.h6,
                     color = itemColor
                 )
             }
         }
     }
+}
+
+fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination): Boolean {
+    return this?.hierarchy?.any {
+        it.route?.contains(destination.name, ignoreCase = true) ?: false
+    } ?: false
 }
