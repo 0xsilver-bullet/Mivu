@@ -78,18 +78,17 @@ dependencies {
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
-    implementation(Retrofit.retrofit)
-
     implementation(Coil.coilCompose)
-
-    implementation(Accompanist.pager)
-
-    implementation(Room.runtime)
-    implementation(Room.roomKtx)
-    kapt(Room.compiler)
 
     implementation(Timber.timber)
 
+    implementation(project(Modules.featureAuth))
+    implementation(project(Modules.featureFavorites))
+    implementation(project(Modules.featureSearch))
+    implementation(project(Modules.featureProfile))
+    implementation(project(Modules.featureHome))
+    implementation(project(Modules.featureMovieDetails))
+    implementation(project(Modules.coreData))
     implementation(project(Modules.coreUi))
 
     testImplementation(Testing.junit4)

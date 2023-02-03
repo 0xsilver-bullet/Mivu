@@ -16,8 +16,8 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.silverbullet.mivu.core.presentation.ui.theme.BlueAccent
-import com.silverbullet.mivu.core.presentation.ui.theme.Soft
+import com.silverbullet.core.ui.BlueAccent
+import com.silverbullet.core.ui.Soft
 import com.silverbullet.mivu.navigation.model.BottomNavItemInfo
 
 @Composable

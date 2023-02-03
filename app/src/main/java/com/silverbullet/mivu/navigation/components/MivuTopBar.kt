@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.silverbullet.core_ui.LocalSpacing
-import com.silverbullet.core_ui.MivuIconButton
+import com.silverbullet.core.ui.LocalSpacing
+import com.silverbullet.core.ui.MivuIconButton
 import com.silverbullet.mivu.navigation.model.TopBarConfig
 import com.silverbullet.mivu.R
 

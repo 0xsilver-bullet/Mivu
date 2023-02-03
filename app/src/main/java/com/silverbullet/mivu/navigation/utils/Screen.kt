@@ -8,7 +8,7 @@ sealed class Screen(val route: String, val topBarConfig: TopBarConfig) {
     /**
      * Screen That contains option to login and signup
      */
-    object StartScreen : Screen("start-screen", TopBarConfig())
+    object StartScreen : Screen("start_route", TopBarConfig())
 
     object LoginScreen : Screen(
         "login-screen",
@@ -65,15 +65,15 @@ sealed class Screen(val route: String, val topBarConfig: TopBarConfig) {
         )
     )
 
-    object HomeScreen : Screen("home-screen", TopBarConfig())
+    object HomeScreen : Screen("home_route", TopBarConfig())
 
-    object SearchScreen : Screen("search-screen", TopBarConfig())
+    object SearchScreen : Screen("search_route", TopBarConfig())
 
-    object FavoritesScreen : Screen("favorites-screen", TopBarConfig())
+    object FavoritesScreen : Screen("favorites_route", TopBarConfig())
 
-    object ProfileScreen : Screen("profile-screen", TopBarConfig())
+    object ProfileScreen : Screen("profile_route", TopBarConfig())
 
-    object EditProfileScreen: Screen("edit-profile-screen",TopBarConfig())
+    object EditProfileScreen: Screen("edit_profile_route",TopBarConfig())
 
     object MovieDetailsScreen : Screen("movie-details", TopBarConfig())
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="profile">Profile</string>
+    <string name="account">Account</string>
+    <string name="change_password">Change Password</string>
+    <string name="general">General</string>
+    <string name="show_adult_content">Show Adult Content</string>
+    <string name="edit_profile_button">Opens Edit profiel screen</string>
+    <string name="save_chagnes">Save Changes</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="full_name">Full Name</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+
+</resources>

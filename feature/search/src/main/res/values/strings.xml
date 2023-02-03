@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="type_something">Type something</string>
+    <string name="recommended">Recommended for you</string>
+    <string name="cancel">Cancel</string>
+    <string name="see_all">See All</string>
+    <string name="actors">Actors</string>
+
+</resources>

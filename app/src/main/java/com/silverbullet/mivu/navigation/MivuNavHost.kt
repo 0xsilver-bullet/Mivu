@@ -6,19 +6,20 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.silverbullet.mivu.feature_auth.presentation.*
-import com.silverbullet.mivu.feature_favorites.presentation.FavoritesScreen
-import com.silverbullet.mivu.feature_home.presentation.HomeScreen
-import com.silverbullet.mivu.feature_movie_details.presentation.MovieDetailsScreen
-import com.silverbullet.mivu.feature_profile.presentation.EditProfileScreen
-import com.silverbullet.mivu.feature_profile.presentation.ProfileScreen
-import com.silverbullet.mivu.feature_search.presentation.SearchScreen
+import com.silverbullet.feature.auth.navigation.*
+import com.silverbullet.feature.favorites.navigation.favoritesScreen
+import com.silverbullet.feature.favorites.navigation.navigateToFavoritesScreen
+import com.silverbullet.feature.home.navigation.homeScreen
+import com.silverbullet.feature.home.navigation.navigateToHomeScreen
+import com.silverbullet.feature.search.navigation.searchScreen
+import com.silverbullet.feature.moviedetails.navigation.movieDetailsScreen
+import com.silverbullet.feature.moviedetails.navigation.navigateToMovieDetailsScreen
+import com.silverbullet.feature.profile.navigation.editProfileScreen
+import com.silverbullet.feature.profile.navigation.navigateToEditProfileScreen
+import com.silverbullet.feature.profile.navigation.profileScreen
 import com.silverbullet.mivu.navigation.components.MivuBottomBar
 import com.silverbullet.mivu.navigation.components.MivuTopBar
 import com.silverbullet.mivu.navigation.utils.NavigationConstants
@@ -63,84 +64,46 @@ fun MivuNavHost(navController: NavHostController, startDestination: String) {
                 navController = navController,
                 startDestination = startDestination
             ) {
-                setupRoutes(navController)
+                startScreen(
+                    onLogin = { navController.navigateToLoginScreen() },
+                    onSignup = { navController.navigateToSignupScreen() },
+                    nestedGraphs = {
+                        loginScreen(
+                            onLoggedIn = { navController.navigateToHomeScreen() },
+                            onForgotPassword = { navController.navigateToResetPasswordScreen() },
+                            nestedGraphs = {
+                                resetPasswordScreen(
+                                    onVerify = { navController.navigateToVerifyAccountScreen() },
+                                    nestedGraphs = {
+                                        verifyAccountScreen(
+                                            onVerified = { navController.navigateToCreateNewPasswordScreen() },
+                                            nestedGraphs = {
+                                                createNewPasswordScreen()
+                                            }
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                        signupScreen()
+                    }
+                )
+                homeScreen(
+                    onFavoritesClick = { navController.navigateToFavoritesScreen() },
+                    onMovieClick = { id, name ->
+                        navController.navigateToMovieDetailsScreen(id, name)
+                    }
+                )
+                searchScreen()
+                favoritesScreen()
+                profileScreen(
+                    onEditProfile = { navController.navigateToEditProfileScreen() },
+                    nestedGraphs = {
+                        editProfileScreen()
+                    }
+                )
+                movieDetailsScreen(navigateBack = navController::navigateUp)
             }
         }
     }
-}
-
-@ExperimentalAnimationApi
-fun NavGraphBuilder.setupRoutes(navController: NavController) {
-    composable(Screen.StartScreen.route) {
-        StartScreen(
-            navCallback = { screen ->
-                navController.navigate(screen.route)
-            }
-        )
-    }
-
-    composable(Screen.LoginScreen.route) {
-        LoginScreen(
-            navCallback = { screen ->
-                navController.navigate(screen.route)
-            }
-        )
-    }
-
-    composable(Screen.SignupScreen.route) {
-        SignupScreen()
-    }
-
-    composable(Screen.ResetPasswordScreen.route) {
-        ResetPasswordScreen(
-            navCallback = { screen ->
-                navController.navigate(screen.route)
-            }
-        )
-    }
-
-    composable(Screen.VerifyAccountScreen.route) {
-        VerifyAccountScreen(
-            navCallback = { screen ->
-                navController.navigate(screen.route)
-            }
-        )
-    }
-
-    composable(Screen.CreateNewPasswordScreen.route) {
-        CreateNewPasswordScreen()
-    }
-
-    composable(Screen.HomeScreen.route) {
-        HomeScreen(
-            navCallback = { screen ->
-                navController.navigate(screen.route)
-            }
-        )
-    }
-
-    composable(Screen.SearchScreen.route) {
-        SearchScreen()
-    }
-
-    composable(Screen.FavoritesScreen.route) {
-        FavoritesScreen()
-    }
-
-    composable(Screen.ProfileScreen.route) {
-        ProfileScreen(
-            navCallback = { screen -> navController.navigate(screen.route) }
-        )
-    }
-
-    composable(Screen.EditProfileScreen.route) {
-        EditProfileScreen()
-    }
-
-    composable(Screen.MovieDetailsScreen.route) {
-        MovieDetailsScreen(
-            navigateBack = { navController.navigateUp() }
-        )
-    }
-
 }

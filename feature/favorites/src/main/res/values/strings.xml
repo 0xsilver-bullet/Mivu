@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string name="no_favorites">Favorites list is empty</string>
+    <string name="movie_time">%d minutes</string>
+
+</resources>
