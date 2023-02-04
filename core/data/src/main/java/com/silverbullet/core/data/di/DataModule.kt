@@ -1,7 +1,9 @@
 package com.silverbullet.core.data.di
 
+import com.silverbullet.core.data.MoviesRepository
 import com.silverbullet.core.data.Preferences
 import com.silverbullet.core.data.repository.AndroidPreferences
+import com.silverbullet.core.data.repository.DefaultMoviesRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,4 +17,9 @@ interface DataModule {
     fun bindsPreferences(
         androidPreferences: AndroidPreferences
     ): Preferences
+
+    @Binds
+    fun bindsMoviesRepository(
+        moviesRepository: DefaultMoviesRepository
+    ): MoviesRepository
 }

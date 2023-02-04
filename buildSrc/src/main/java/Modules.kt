@@ -3,6 +3,8 @@ object Modules {
     const val coreUi = ":core:ui"
     const val coreModel = ":core:model"
     const val coreData = ":core:data"
+    const val coreDatabase = ":core:database"
+    const val coreNetwork = ":core:network"
 
     const val featureAuth = ":feature:auth"
     const val featureHome = ":feature:home"

@@ -1,6 +1,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -41,6 +43,10 @@ android {
 
 dependencies {
 
+    implementation(project(Modules.coreUi))
+    implementation(project(Modules.coreModel))
+    implementation(project(Modules.coreData))
+
     implementation(Compose.activity)
     implementation(Compose.ui)
     implementation(Compose.uiToolingPreview)
@@ -50,13 +56,10 @@ dependencies {
 
     implementation(Accompanist.pager)
 
+    implementation(DaggerHilt.hiltAndroid)
+    kapt(DaggerHilt.hiltCompiler)
 
     debugImplementation(Compose.debugTooling)
-
-
-    implementation(project(Modules.coreUi))
-    implementation(project(Modules.coreModel))
-    implementation(project(Modules.coreData))
 
     testImplementation(Testing.junit4)
 

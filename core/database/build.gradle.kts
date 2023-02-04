@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -7,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.silverbullet.core.data"
+    namespace = "com.silverbullet.core.database"
     compileSdk = 33
 
     defaultConfig {
@@ -39,13 +38,17 @@ android {
 dependencies {
 
     implementation(project(Modules.coreModel))
-    implementation(project(Modules.coreDatabase))
-    implementation(project(Modules.coreNetwork))
+
+    implementation(Room.runtime)
+    kapt(Room.compiler)
+    implementation(Room.roomKtx)
 
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
-
     testImplementation(Testing.junit4)
+    testImplementation(Testing.composeUiTest)
 
+    androidTestImplementation(Testing.composeUiTest)
+    androidTestImplementation(Testing.junitAndroidExt)
 }

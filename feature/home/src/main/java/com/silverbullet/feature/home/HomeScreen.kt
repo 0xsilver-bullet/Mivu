@@ -3,6 +3,7 @@ package com.silverbullet.feature.home
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -20,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.calculateCurrentOffsetForPage
@@ -34,9 +36,13 @@ import kotlin.random.Random
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 internal fun HomeScreen(
+    viewModel: HomeViewModel = hiltViewModel(),
     onFavoritesClick: () -> Unit,
     onMovieClick: (String, String) -> Unit
 ) {
+
+    val categories = viewModel.categories.collectAsState()
+
     Column(modifier = Modifier.fillMaxSize()) {
         HomeTop(
             title = "Aly",
@@ -110,10 +116,10 @@ internal fun HomeScreen(
             title = stringResource(id = R.string.categories),
             modifier = Modifier.padding(start = LocalSpacing.current.largeSpace)
         ) {
-            items(1000) {
+            items(categories.value) { category ->
                 CategoryCard(
-                    item = Category("Category $it", it),
-                    selected = it == 1,
+                    item = category,
+                    selected = category.id == 1,
                     onClick = {}
                 )
                 Spacer(modifier = Modifier.width(4.dp))
@@ -134,7 +140,7 @@ internal fun HomeScreen(
                         4.9f,
                         ""
                     ),
-                    onClick = { onMovieClick(it.title , it.title)}
+                    onClick = { onMovieClick(it.title, it.title) }
                 )
                 // TODO: pass movie id to on click !!!!!!!!!!!!!!!!!!
                 Spacer(modifier = Modifier.width(12.dp))
