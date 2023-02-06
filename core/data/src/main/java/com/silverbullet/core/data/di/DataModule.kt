@@ -4,6 +4,8 @@ import com.silverbullet.core.data.MoviesRepository
 import com.silverbullet.core.data.Preferences
 import com.silverbullet.core.data.repository.AndroidPreferences
 import com.silverbullet.core.data.repository.DefaultMoviesRepository
+import com.silverbullet.core.data.utils.AndroidNetworkMonitor
+import com.silverbullet.core.data.utils.NetworkMonitor
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -22,4 +24,9 @@ interface DataModule {
     fun bindsMoviesRepository(
         moviesRepository: DefaultMoviesRepository
     ): MoviesRepository
+
+    @Binds
+    fun bindsNetworkMonitor(
+        networkMonitor: AndroidNetworkMonitor
+    ): NetworkMonitor
 }

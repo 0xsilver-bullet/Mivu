@@ -1,5 +1,7 @@
 package com.silverbullet.mivu.navigation.components
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -69,12 +71,14 @@ fun NavItem(
     val itemColor = if (selected) selectedColor else defaultColor
     val boxModifier = if (selected) {
         Modifier
+            .animateContentSize()
             .clip(RoundedCornerShape(16.dp))
             .background(selectedBackgroundColor)
             .clickable { }
             .padding(12.dp)
     } else {
         Modifier
+            .animateContentSize()
             .clickable { onClick(destination) }
             .padding(12.dp)
     }
@@ -89,7 +93,7 @@ fun NavItem(
                 contentDescription = null,
                 tint = itemColor
             )
-            if (selected) {
+            AnimatedVisibility(visible = selected) {
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
                     text = stringResource(id = destination.titleId),
